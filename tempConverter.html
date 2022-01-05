@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Converter</title>
+    <style>
+        /* Styling part */
+        .containerMain{
+            height: 500px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0 0 12px black;
+            border-radius: 10px;
+        }
+        .heading{
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 25px;
+        }
+        .heading h1{
+             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+             margin: 10px;
+             padding: 10px;
+
+        }
+
+        .container{
+             
+            text-align: center;
+        }
+        .input-tag{
+            font-size: larger;
+            padding: 20px;
+            margin: 10px;
+        }
+        .input-tag label{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .input-tag input{
+            outline: none;
+            text-align: center;
+            font-size: larger;
+        }
+                
+    </style>
+</head>
+<body>
+    <div class="containerMain">
+        <div class="heading">
+             <h1>Temp Converter.</h1>
+        </div>
+        <div class="container">
+            <div class="input-tag">
+                <label for="">Celsius</label><br>
+                <input type="number" value="0" id="inp1" class="inp">
+            </div>
+            <h2>=</h2>
+            <div class="input-tag">
+                <label for="">Fahrenheit</label><br>
+                <input type="number" value="32" id="inp2" class="inp">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- javascript -->
+
+    <script>
+        let input1 = document.getElementById('inp1');
+        let input2 = document.getElementById('inp2');
+
+        input1.addEventListener('input', function(){
+                // console.log("changed 1");
+                let Celsius = this.value;
+                let changeCelsiusValue = (Celsius * 9/5) + 32 ;
+                input2.value = changeCelsiusValue.toFixed(5);
+
+        });
+
+        input2.addEventListener('input',function(){
+            // console.log("changed 1");
+            let Fahrenheit = this.value;
+            let changeFahrenheitValue = (Fahrenheit - 32) * 5/9 ;
+ ;
+            input1.value = changeFahrenheitValue.toFixed(5);
+        });
+    </script>
+</body>
+</html>
