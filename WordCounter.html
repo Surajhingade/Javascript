@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>word counter</title>
+    <style>
+        .container{
+            height: 500px;
+            width: 500px;
+            /* border: 2px solid black; */
+            margin: auto;
+            text-align: center;
+            box-shadow: 0 0 12px black;
+            border-radius: 10px;
+        }
+
+        .showInformation{
+            border: 1px solid black;
+            margin: 5px;
+        }
+        .inputInformation{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="padding: 10px; margin: 10px;">
+        Word Counter...
+        </h2>
+        <div class="showInformation">
+            <p><span id="word">0</span> Word and <span id="character">0</span> character  </p> 
+        </div>
+        <div class="inputInformation">
+            <textarea name="new" id="inputvalue" cols="60" rows="15"></textarea>
+        </div>
+       
+    </div>
+
+
+    <script>
+        let text = document.getElementById('inputvalue');
+
+        text.addEventListener('input',function(){
+            let text = this.value;
+            let character = text.length;         
+            let showCharacter = document.getElementById('character').innerHTML = character;
+
+
+         
+            let word = text.split(" ");
+            
+
+            //  that function does not take extra spaces.
+            let cleanExtraSpaces = word.filter(function(e){
+                // console.log(e);
+                return e != "";
+            })
+           
+
+              document.getElementById('word').innerHTML = cleanExtraSpaces.length  ;
+           
+        });
+
+
+      
+ 
+    </script>
+</body>
+</html>
